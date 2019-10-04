@@ -1,0 +1,27 @@
+1) extractCUB.m extracting data (image, labeled, properties ...) from CUB dataset
+    generating ../mat/image.mat, attr.mat, classes.mat, attr_type.mat files
+
+2) buildDict.m bulding vbag-of-word vector for articles about birds
+    generating ../mat/bow_vector.mat
+
+3) buildFeature.m generate value of attributes of each kind of bird
+    generating ../mat/attribute.mat
+
+4) buildData.m generate crossvalidation data for training and testing model
+    generating ../mat/crossvalid.mat
+
+
+5) svm_run.m % Training SVM classifiers and testing accuracy
+
+6) svm_run2.m % Training SVM classifiers and testing accuracy on the first 
+    % training-testing dataset, generate figures
+    
+7) runDiffThreshold.m changing value of threshold to generate different values of attribute, compare
+    accuracy with baseline's accuracy (the number of 0s labels of dataset)
+
+8) runDiffSVMThreshold.m % using liblinear's svm to train and test result, changing svm's
+    % thresvalue to figure precision and recall rates
+    
+9) groupFeature.m from 312 attributes from dataset, group to subset with the same kind of attribute,    such as color_red, color_green ... gonna be grouped as color attribute
+
+10) runGroupAttribute.m run the whole training and testing process on grouped attributes
