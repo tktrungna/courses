@@ -1,0 +1,372 @@
+\documentclass[11pt]{article}
+
+
+\input{testpoints}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+
+\newcommand{\argmax}{\mathop{\arg\max}}
+\newcommand{\deriv}[1]{\frac{\partial}{\partial {#1}} }
+\newcommand{\dsep}{\mbox{dsep}}
+\newcommand{\Pa}{\mathop{Pa}}
+\newcommand{\ND}{\mbox{ND}}
+\newcommand{\De}{\mbox{De}}
+\newcommand{\Ch}{\mbox{Ch}}
+\newcommand{\graphG}{{\mathcal{G}}}
+\newcommand{\graphH}{{\mathcal{H}}}
+\newcommand{\setA}{\mathcal{A}}
+\newcommand{\setB}{\mathcal{B}}
+\newcommand{\setS}{\mathcal{S}}
+\newcommand{\setV}{\mathcal{V}}
+\DeclareMathOperator*{\union}{\bigcup}
+\DeclareMathOperator*{\intersection}{\bigcap}
+\DeclareMathOperator*{\Val}{Val}
+\newcommand{\mbf}[1]{{\mathbf{#1}}}
+\newcommand{\eq}{\!=\!}
+\newcommand{\cut}[1]{}
+
+\begin{document}
+
+{\centering
+  \rule{6.3in}{2pt}
+  \vspace{1em}
+  {\Large
+    CS688: Graphical Models - Spring 2015\\
+    Assignment 2: Part A\\
+  }
+  \vspace{1em}
+ Trung Kien Tran 28957765\\
+  \vspace{0.1em}
+  \rule{6.3in}{1.5pt}
+}\vspace{1em}
+
+\begin{problem}{20} \textbf{Exhaustive Inference:} In this question, you will implement simple exhaustive inference for the CRF model. The code packages provides a pre-trained model for the OCR task including the feature parameters (\textit{feature-params.txt}) and the label-label transition parameters (\textit{transition-params.txt}). Use these parameters to answer the following questions. For grading purposes, make sure to list results table rows and/or columns using the character ordering ``etainoshrd''.
+
+\newpart{2} {For the first test word only, compute the node potentials $\phi'(y_{ij})$ obtained by conditioning the CRF on the observed image sequence. After conditioning, there is one node potential per position in the test word. Each node potential is a vector with one entry per character label. Report the node potential as a table for each position in the test word.} 
+The code for this part are $ques11.m$ and $nodePotential.m$\\
+The node potential values of each position in the first test word ``that''
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+ & $x_{10}$ & $x_{11}$ & $x_{12}$ & $x_{13}$ \\\hline
+e  & -7.6444 & -4.0745 & -10.2081 & 6.4649 \\\hline
+t  & 18.4684 & 5.7448 & 0.8973 & 24.5313 \\\hline
+a  & -6.3286 & 1.1764 & 17.1910 & -13.3429 \\\hline
+i  & 10.4225 & -1.7931 & -12.0177 & 5.8712 \\\hline
+n  & -4.9672 & 1.2122 & 5.5794 & -10.9548 \\\hline
+o  & -1.9340 & -1.7849 & -0.5940 & -11.4965 \\\hline
+s  & -0.9452 & -8.2999 & -21.4264 & -5.4946 \\\hline
+h  & -5.6571 & 3.0952 & 9.1489 & -7.1956 \\\hline
+r  & 5.3953 & 6.8066 & 9.4824 & 8.0457 \\\hline
+d  & -6.9098 & -0.3416 & 1.9472 & 3.5715 \\
+\end{tabular}
+\end{center}
+
+\newpart{2} {For the first three test words, compute the value of the negative energy of the true label sequence after conditioning on the corresponding observed image sequence: 
+$$-E_W(\mbf{x}_i,\mbf{y}_i)=\sum_{j=1}^{L_i} \phi'(y_{ij}) + \sum_{j=1}^{L_i-1}\sum_{c=1}^{C}\sum_{c'=1}^{C}W^T_{cc'}[y_{ij}=c][y_{ij+1}=c'] = \sum_{j=1}^{L_i} \phi'(y_{ij}) +\sum_{j=1}^{L_i-1}W^T_{y_{ij},y_{ij+1}}$$.}
+The code for this part are $ques12.m$, $negEnergy.m$ and $chars2id.m$\\
+The negative energy of the true label sequence of the first three test words\\
+First word: ``that'' 63.9793\\
+Second word: ``hire'' 89.6109\\
+Third word: ``rises'' 96.9406
+
+\newpart{6}{For the first three test words, use exhaustive summation over all possible character label sequences to compute the value of the log partition function for the CRF model after conditioning on the corresponding observed image sequence. Report the value you compute.}
+The code for this part is $ques13.m$, $negEnergy.m$ and $logSumExp.m$\\
+The value of the log partition function for the CRF model after conditioning of the first three test words\\
+First word: ``that'' 67.6019\\
+Second word: ``hire'' 89.6144\\
+Third word: ``rises'' 103.5276\\
+
+\newpart{6}{For the first three test words, compute the most likely joint labeling (character sequence) word. Report both the labeling and its probability under the model.}
+The code for this part is $ques14.m$, $negEnergy.m$ and $id2chars.m	$\\
+First predicted word: ``trat'' with probability 0.7958\\
+Second predicted word: ``hire'' with probability 0.9965\\
+Third predicted word: ``riser'' with probability 0.9370
+
+\newpart{4}{For the first test word only, compute the marginal probability distribution over character labels for each position in the word. Report each marginal distribution using a table.} 
+The code for this part is $ques15.m$ and $nodePotential.m$\\
+Marginal distribution over characters for each position in the first word:
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+ & $x_{10}$ & $x_{11}$ & $x_{12}$ & $x_{13}$ \\\hline
+e  & 7.4548e-07 & 2.6473e-05 & 5.7411e-08 & 1.0000 \\\hline
+t  & 0.0023 & 6.9207e-09 & 5.4313e-11 & 0.9977 \\\hline
+a  & 6.1035e-11 & 1.1090e-07 & 1.0000 & 5.4864e-14 \\\hline
+i  & 0.9896 & 4.9008e-06 & 1.7774e-10 & 0.0104 \\\hline
+n  & 2.6255e-05 & 0.0011 & 0.9989 & 6.5885e-08 \\\hline
+o  & 0.1672 & 0.1941 & 0.6386 & 1.175e-05 \\\hline
+s  & 0.9889 & 6.3249e-04 & 1.2598e-09 & 0.0105 \\\hline
+h  & 3.7052e-07 & 0.0023 & 0.9977 & 7.9550e-08 \\\hline
+r  & 0.0127 & 0.0520 & 0.7557 & 0.1796 \\\hline
+d  & 2.5073e-05 & 0.0320 & 0.1593 & 0.8086 \\\hline
+\end{tabular}
+\end{center}
+
+\end{problem}
+
+\begin{problem}{40} \textbf{Sum-Product Message Passing:} In this question, you will implement the sum-product inference algorithm for the CRF model. The code packages provides a pre-trained model for the OCR task including the feature parameters (\textit{feature-params.txt}) and the label-label transition parameters (\textit{transition-params.txt}). Use these parameters to answer the following questions.
+ 
+\newpart{6}{For the first test word only, condition on the observed image sequence to obtain a chain-structured
+Markov network. Next, convert the Markov network into a clique tree with cliques $C_1=\{Y_1,Y_2\},C_2=\{Y_2,Y_3\},C_3=\{Y_3,Y_4\}$ and edges $C_1-C_2$ and $C_2-C_3$.
+Compute the clique potentials $\psi_1(Y_1,Y_2)$, $\psi_2(Y_2,Y_3)$ and $\psi_3(Y_3,Y_4)$. Include the node potential $\phi'(Y_1)$ in $C_1$, $\phi'(Y_2)$ in $C_2$, for $\phi'(Y_3)$ in $C_3$ and $\phi'(Y_4)$ in $C_3$. Each clique potential is a $10\times 10$ table. Report the $3\times 3$ block of entries between the labels ``t,a,h'' for each of the three clique potentials.}
+The code for this part is $ques21.m$, $nodePotential.m$, and $scatterMatrix.m$\\
+Clique potentials for the labels `t', `a', and `h' for each of the three clique potentials:
+
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & a \\\hline
+t & 17.8146 & 18.7491 & 18.8389 \\\hline
+a & -6.0479 & -6.5593 & -6.2812 \\\hline
+h & -5.2916 & -5.6098 & -5.7933
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & a \\\hline
+t & 5.0911 & -6.0255 & 6.1103 \\\hline
+a & 1.4571 & 0.9457 & 1.2237 \\\hline
+h & 3.4607 & 3.1425 & 2.9590
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & a \\\hline
+t & 24.7749 & -12.1649 & -5.9328 \\\hline
+a & 42.0030 & 3.6174 & 10.0427 \\\hline
+h & 34.0456 & -4.1467 & 1.8171
+\end{tabular}
+\end{center}
+
+\newpart{8}{For the first test word only, use the clique tree potentials to compute the log-space sum-product messages $\delta'_{1\rightarrow 2}(Y_2)$, $\delta'_{2\rightarrow 1}(Y_2)$, $\delta'_{2\rightarrow 3}(Y_3)$, $\delta'_{3\rightarrow 2}(Y_3)$ from the clique tree potentials. Report the value of each message in a table.}
+The code for this part is $ques22.m$, $nodePotential.m$, and $messages.m$\\
+Forward message $0 \to 1$:
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r}
+18.5893 &  17.8153  & 18.7494  & 18.5227  & 18.1808  & 18.6773  & 18.0913  & 18.8341  & 18.3634  & 18.2164
+\end{tabular}\end{center}
+Forward message $1 \to 2$:
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r}
+25.6511 &  25.2369 &  25.5984 &  25.5779  & 25.2716 &  25.6012 &  25.0715  & 25.3880  & 25.4145 &  25.2026
+\end{tabular}\end{center}
+Backward message $2 \to 1$:
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r}
+37.7353  & 48.0291  & 42.9495  & 40.4300&   40.9076  & 40.0510 &  33.4551&   45.1460  & 49.0110  & 42.4119
+\end{tabular}\end{center}
+Backward message $1 \to 0$:
+\begin{center}
+\begin{tabular}{r|r|r|r|r|r|r|r|r|r}
+14.4439 &  24.7749 &  42.0030 &  12.5677  & 29.8224  & 24.1459   & 2.7272  & 34.0456 &  33.9083  & 26.2260
+\end{tabular}\end{center}
+
+\newpart{8}{For the first test word only, use the messages and the clique tree potentials to compute the log beliefs at each node in the clique tree $\beta'(Y_1,Y_2)$, $\beta'(Y_2,Y_3)$ and $\beta'(Y_3,Y_4)$. Report the $2\times 2$ block of log belief entries between the first two labels ``t'' and ``a'' only for each of the three cliques.}
+The code for this part is $ques23.m$, $nodePotential.m$, $messages.m$,  $scatterMatrix.m$, and $calBeliefs.m$\\
+Log belief entries between `t' and `a' for each of the three cliques:
+
+\begin{center}
+\begin{tabular}{r|r|r}
+& t & a \\\hline
+t & 65.8437  & 61.6986 \\\hline
+a & 41.9812 & 36.3903
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{r|r|r}
+& t & a \\\hline
+t & 47.6812 & 65.8438 \\\hline
+a & 44.9813 & 61.6980
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{r|r|r}
+& t & a \\\hline
+t & 50.0117 & 13.0720 \\\hline
+a & 67.6013  & 29.2158
+\end{tabular}
+\end{center}
+
+\newpart{8}{For the first test word only, use the computed log beliefs to compute the marginal probability distribution over each position in the word. Report the marginal distributions as tables. Also use the beliefs to compute the pairwise marginals $P(y_{i1},y_{i2}|\mbf{x}_i)$.   Report the $3\times 3$ block of entries between the labels ``t,a,h''.}
+The code for this part is $ques24.m$, $nodePotential.m$, $messages.m$,  $scatterMatrix.m$,  $calBeliefs.m$ and $calMarginals.m$\\
+
+Marginal distributions for first test word:
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+ & $x_{10}$ & $x_{11}$ & $x_{12}$ & $x_{13}$ \\\hline
+e  & 7.2227e-12 & 1.2658e-05 & 1.1321e-12 & 8.8683e-09 \\\hline
+t  & 0.9995 & 0.1725 & 2.2945e-08 & 1.0000 \\\hline
+a  & 2.6262e-11 & 0.0027 & 0.9995 & 2.1357e-07 \\\hline
+i  & 4.7272e-04 & 1.7528e-04 & 1.6119e-13 & 7.4054e-09 \\\hline
+n  & 7.1555e-11 & 2.0074e-04 & 3.6976e-06 & 3.2900e-16 \\\hline
+o  & 2.1138e-09 & 1.4005e-04 & 1.7611e-08 & 1.4410e-16 \\\hline
+s  & 3.2960e-19 & 1.0646e-07 & 5.1721e-18 & 5.3711e-14 \\\hline
+h  & 4.3493e-11 & 0.0267 & 2.8353e-04 & 1.3178e-14 \\\hline
+r  & 2.6281e-06 & 0.7966 & 2.5376e-04 & 6.3940e-08 \\\hline
+d  & 1.0694e-11 & 9.3629e-04 & 9.4638e-08 & 6.3736e-10 \\
+\end{tabular}
+\end{center}
+
+Pairwise marginals for the labels `t', `a', `h':
+
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & h \\
+t & 0.1724 & 0.0027 & 0.0267 \\
+a & 7.4658e-12 & 2.7860e-14 & 3.3086e-13 \\
+h & 1.5904e-11 & 7.2001e-14 & 5.3897e-13
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & h \\
+t & 2.2314e-09 & 0.1723 & 6.5686e-05 \\
+a & 1.4997e-10 & 0.0027 & 1.2616e-06 \\
+h & 1.2104e-09 & 0.0267 & 7.7862e-06
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{r|r|r|r}
+& t & a & h \\
+t & 2.2945e-08 & 2.0796e-24 & 1.0581e-21 \\
+a & 0.9995 & 2.1337e-17 & 1.3171e-14 \\
+h & 2.8353e-04 & 7.3432e-21 & 2.8571e-18
+\end{tabular}
+\end{center}
+
+
+\newpart{10}{Generalize the steps given above to compute the single variable and pairwise marginal probabilities for any sequence of input images. Apply your completed algorithm to compute the marginal probability distribution over the character labels given the image sequences for each word in the test set. For each position in each test word, predict the character with maximum probability. List your predictions for the first five test sequences.
+In addition, use the true character labels in \textit{test\_words.txt} to compute the average character-level accuracy over the complete test set. Report the accuracy that you find to three decimal places.}
+The code for this part is $ques25.m$, $nodePotential.m$, $messages.m$,  $scatterMatrix.m$,  $calBeliefs.m$ and $calMarginals.m$\\
+Predictions for the first five words: trat hire riser edison shore\\
+True first five word: that hire rises edison shore\\
+Overall character accuracy: 0.9167
+ 
+\end{problem}
+
+\begin{problem}{34} \textbf{Maximum Likelihood Learning Derivation:} In this problem, you will derive the maximum likelihood learning algorithm for conditional random field models.
+
+\newpart{8}{Write down the average log likelihood function for the CRF given a data set consisting of $N$ image sequences $\mbf{x}_i$ and label sequences $\mbf{y}_i$.} 
+
+\begin{align*}
+\mathcal{L}(W\mid x_{1:N},y_{1:N}) &= \frac{1}{N}\sum_{n=1}^N\log P_W(y_n,x_n)
+\end{align*} 
+Where the probability function
+\begin{align*}
+P_W(y_n,x_n) = \frac{-E_W(x_n,y_n)}{Z}
+\end{align*}
+that the negative energy function:
+\begin{align*}
+-E_W(x_n,y_n) &= \exp\left[
+\sum_{j=1}^{L_i}\sum_{c=1}^C\sum_{f=1}^FW_{cf}^F[y_{nj}=c]x_{njf}
++ \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^CW_{cc'}^T[y_{nj}=c][y_{nj+1}=c']
+\right]
+\end{align*}
+and the partition function:
+\begin{align*}
+Z &= \sum_{x'_i}\sum_{y'_i}\exp\left[
+\sum_{j=1}^{L_i}\sum_{c=1}^C\sum_{f=1}^FW_{cf}^F[y'_{ij}=c]x'_{ijf}
++ \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^CW_{cc'}^T[y'_{ij}=c][y'_{ij+1}=c']
+\right]
+\end{align*}
+
+
+\newpart{8}{Derive the derivative of the average log likelihood function with respect to the feature parameter $W^F_{cf}$. Show your work.} 
+We first apply the chain rule
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &= \frac{1}{N}\sum_{n=1}^N\left[\frac{1}{P_W(y_n,x_n)}\frac{\partial P_W}{\partial W_{cf}^F}P_W(y_n,x_n)\right]
+\end{align*}
+Then get partial derivative of $P_W$ with respect to $W_{cf}^F$
+\begin{align*}
+\frac{\partial P_W}{\partial W_{cf}^F} &= 
+\frac{\exp(-E_W(y_n,x_n))}{\sum_{y'}\sum_{x'}\exp(-E_W(y_n,x_n))}\frac{-\partial E_W(y_n,x_n)}{\partial W_{cf}^F}\\
+&= \frac{\exp(-E_W(y_n,x_n))}{\left[\sum_{y'}\sum_{x'}\exp(-E_W(y_n,x_n))\right]^2}\sum_{y'}\sum_{x'}\exp(-E_W(y',x'))\frac{-\partial E_W(y',x')}{\partial W_cf^F}\\
+&= 
+P_W(y_n,x_n)\frac{-\partial E_W(y_n,x_n)}{\partial W_{cf}^F}
+-P_W(y_n,x_n)\sum_{y'}\sum_{x'}P_W(y',x')\frac{-\partial E_W(y',x')}{\partial W_{cf}^F}
+\end{align*}
+The derivative of the energy function $E_W$ with respect to $W_{cf}^F$:
+\begin{align*}
+\frac{\partial E_W(y_n,x_n)}{\partial W_{cf}^F} = \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y_{nj}=c][x_{njf}]
+\end{align*}
+Then
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &= 
+\frac{1}{N}\sum_{n=1}^N\Big[ 
+\frac{1}{P_W(y_n,x_n)}\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y_{nj}=c][x_{njf}]-P_W(y_n,x_n)\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\Big]\\
+&= \frac{1}{N}\sum_{n=1}^N\left[ 
+\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\right]
+\end{align*}
+Since $n$ is not used in the second term, then it could be simplified as
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\end{align*}
+
+\newpart{8}{Derive the derivative of the average log likelihood function with respect to the transition parameter $W^T_{cc'}$. Show your work.} 
+For transition parameter $W^T_{cc'}$, we have similar with $W_{cf}^F$\\
+For the derivative of $E_W(y_n,x_n)$
+\begin{align*}
+\frac{\partial E_W(y_n,x_n)}{\partial W_{cc'}^T} = \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y_{nj}=c][y_{nj+1}=c']
+\end{align*}
+After substituting, we get
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y_{nj}=c][y_{nj+1}=c']
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y'_{j}=c][y'_{j+1}=c']
+\end{align*}
+\newpart{8}{ Explain how, as a byproduct of the sum-product algorithm's computation of the single-variable and pairwise marginal probabilities, you can efficiently compute both the value of the log-likelihood function and the values of the above derivatives.}
+To computed the sum-product algorithm's computation of the single-variable probability, we could compute the value of the log-likelihood function.\\
+To compute pairwise marginal probabilities, we could sum over the log-marginals for each.\\
+To compute the derivatives, could use the marginals that we need at each iteration $x_i$, $y_i$, such as below
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]\\
+&= \frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F\sum_{y'_j}\sum_{x'_{jf}}P_W(y'_j,x'_{jf})[y'_{j}=c][x'_{jf}]
+\end{align*}
+
+\newpart{2}{Using a data set consisting of the first 50 training data cases only, compute the average log likelihood of the true label sequences given the image sequences using the supplied model parameters.}
+The code for this part is $ques35.m$, $nodePotential.m$, $messages.m$,  $scatterMatrix.m$,  $calBeliefs.m$ and $calMarginals.m$\\
+Average log likelihood of first 50 training examples: -4.5652
+
+\newpart{0}{Using a data set consisting of the first 50 training data cases only, compute the derivative with respect to each model parameter of the average log likelihood of the true label sequences given the image sequences using the supplied model parameters. There is nothing to hand in for this question, but we will provide the solution to help you debug your code. These files are in the model folder and called feature-gradient.txt and transition-gradient.txt.}
+
+\end{problem}
+
+\begin{problem}{6} \textbf{Numerical Optimization Warm-Up:} In part B of the assignment, you will implement
+the above learning algorithm using a numerical optimizer to maximize the log likelihood. In this question, you will experiment with optimizing a basic function.
+
+\newpart{3}{Consider the objective function $f_w(x,y) = -(1-x)^2 - 100(y-x^2)^2$. Derive the derivatives of $f(x,y)$ with respect to $x$ and $y$ (the gradient function). Show your work.
+} 
+\begin{align*}
+\frac{\partial f}{\partial x} &= -(2(1-x)(-1))-100(2(y-x^2)(y-2x))\\
+&= 2(1-x)-200(y-x^2)(-2x)\\
+&= -400x^3+400xy-2x+2
+\end{align*}
+
+\begin{align*}
+\frac{\partial f}{\partial y} &= -200(y-x^2)
+\end{align*}
+
+\newpart{3}{Select a numerical optimizer for the programming language you are using. If you haven't used it previously, study its documentation carefully. Implement the objective function and the gradient function in the form required by your numerical optimizer. Write code to use the optimizer to \textbf{maximize} $f(x,y)$. Report both the location of the maximum and the value of the objective function at the maximum. 
+} 
+
+\end{problem}
+
+
+\showpoints
+\end{document} 
