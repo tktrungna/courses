@@ -1,0 +1,9 @@
+Log file for peer 5
+Started client of george@127.0.0.1:10045
+Has items: {u'rubber': 1500, u'scissors': 1500}
+The current trader is: trader_1
+Current items: {u'rubber': 1400, u'scissors': 1400}
+george is depositing item to the trader.
+george is updating key to the trader. Current quantity of key is 0
+george is updating man to the trader. Current quantity of man is 0
+george is updating laptop to the trader. Current quantity of laptop is 0

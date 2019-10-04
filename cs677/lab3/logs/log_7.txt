@@ -1,0 +1,11 @@
+Log file for peer 7
+Started client of barry@127.0.0.1:10047
+Has items: {u'newspaper': 1500, u'bulb': 1500, u'magazine': 1500, u'clock': 1500, u'pencil': 1500}
+The current trader is: trader_1
+Current items: {u'newspaper': 1400, u'bulb': 1400, u'magazine': 1400, u'clock': 1400, u'pencil': 1400}
+barry is depositing item to the trader.
+barry is updating key to the trader. Current quantity of key is 0
+barry is LOOKING up for item man
+The Trader and other seller doesn't have (enough)man.
+Current items: {u'newspaper': 1400, u'pencil': 1400, u'magazine': 1400, u'bulb': 1400, u'clock': 1400}
+barry is updating laptop to the trader. Current quantity of laptop is 0

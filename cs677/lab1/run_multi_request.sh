@@ -1,0 +1,9 @@
+nohup python test_multi_request.py 0 &
+nohup python test_multi_request.py 1 &
+nohup python test_multi_request.py 2 &
+nohup python test_multi_request.py 3 &
+nohup python test_multi_request.py 4 &
+nohup python test_multi_request.py 6 &
+nohup python test_multi_request.py 7 &
+nohup python test_multi_request.py 8 &
+nohup python test_multi_request.py 9 &

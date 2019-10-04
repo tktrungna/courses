@@ -1,0 +1,44 @@
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "database-server.py", line 211, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+Index of trader: Traceback (most recent call last):
+  File "trader.py", line 353, in <module>
+    ids = map(int,raw_input("Index of trader: ").split())
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 40, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line

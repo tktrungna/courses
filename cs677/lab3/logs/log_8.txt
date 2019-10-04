@@ -1,0 +1,12 @@
+Log file for peer 8
+Started client of robin@127.0.0.1:10048
+Has items: {u'phone': 1500, u'rice': 1500, u'meat': 1500, u'milk': 1500, u'scissors': 1500}
+The current trader is: trader_0
+Current items: {u'phone': 1400, u'rice': 1400, u'meat': 1400, u'milk': 1400, u'scissors': 1400}
+robin is depositing item to the trader.
+robin is updating key to the trader. Current quantity of key is 0
+robin is LOOKING up for item coin
+robin bought item from the trader.
+Current items: {u'phone': 1400, u'rice': 1400, u'meat': 1400, u'scissors': 1400, 'coin': 30, u'milk': 1400}
+The current trader is: trader_1
+robin is updating laptop to the trader. Current quantity of laptop is 0

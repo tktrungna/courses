@@ -1,0 +1,14 @@
+Log file for peer 2
+Started client of marry@127.0.0.1:10042
+Has items: {u'phone': 1500, u'brush': 1500, u'key': 1500, u'scissors': 1500}
+The current trader is: trader_0
+Current items: {u'phone': 1400, u'brush': 1400, u'key': 1400, u'scissors': 1400}
+marry is depositing item to the trader.
+marry is updating key to the trader. Current quantity of key is 1300
+The current trader is: trader_1
+marry is LOOKING up for item laptop
+marry bought item from the trader.
+Current items: {u'phone': 1400, 'laptop': 1, u'brush': 1400, u'key': 1300, u'scissors': 1400}
+marry is LOOKING up for item laptop
+marry bought item from the trader.
+Current items: {u'phone': 1400, 'laptop': 101, u'brush': 1400, u'key': 1300, u'scissors': 1400}

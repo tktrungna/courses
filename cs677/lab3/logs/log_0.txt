@@ -1,0 +1,17 @@
+Log file for peer 0
+Started client of peter@127.0.0.1:10040
+Has items: {u'water': 1500, u'tissue': 1500, u'diary': 1500, u'bottle': 1500, u'watch': 1500, u'packet': 1500, u'glasses': 1500}
+The current trader is: trader_0
+Current items: {u'water': 1400, u'tissue': 1400, u'diary': 1400, u'bottle': 1400, u'watch': 1400, u'packet': 1400, u'glasses': 1400}
+peter is depositing item to the trader.
+peter is LOOKING up for item key
+peter bought item from the trader.
+Current items: {u'bottle': 1400, u'watch': 1400, u'packet': 1400, u'water': 1400, u'tissue': 1400, u'diary': 1400, 'key': 1, u'glasses': 1400}
+peter is LOOKING up for item key
+peter bought item from the trader.
+Current items: {u'bottle': 1400, u'watch': 1400, u'packet': 1400, u'water': 1400, u'tissue': 1400, u'diary': 1400, 'key': 11, u'glasses': 1400}
+peter is LOOKING up for item key
+peter bought item from the trader.
+Current items: {u'bottle': 1400, u'watch': 1400, u'packet': 1400, u'water': 1400, u'tissue': 1400, u'diary': 1400, 'key': 111, u'glasses': 1400}
+The current trader is: trader_1
+peter is updating laptop to the trader. Current quantity of laptop is 0

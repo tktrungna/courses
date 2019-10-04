@@ -1,0 +1,17 @@
+Log file for peer 3
+Started client of john@127.0.0.1:10043
+Has items: {u'pencil': 1500, u'pen': 1500, u'umbrella': 1500, u'lighter': 1500, u'wallet': 1500, u'button': 1500}
+The current trader is: trader_1
+Current items: {u'pencil': 1400, u'pen': 1400, u'umbrella': 1400, u'lighter': 1400, u'wallet': 1400, u'button': 1400}
+john is depositing item to the trader.
+john is LOOKING up for item key
+john bought item from the trader.
+Current items: {u'pencil': 1400, u'pen': 1400, u'umbrella': 1400, u'lighter': 1400, 'key': 1, u'wallet': 1400, u'button': 1400}
+john is LOOKING up for item key
+john bought item from the trader.
+Current items: {u'pencil': 1400, u'pen': 1400, u'umbrella': 1400, u'lighter': 1400, 'key': 11, u'wallet': 1400, u'button': 1400}
+john is LOOKING up for item key
+The Trader and other seller doesn't have (enough)key.
+Current items: {u'pencil': 1400, u'pen': 1400, u'umbrella': 1400, u'lighter': 1400, 'key': 11, u'wallet': 1400, u'button': 1400}
+john is updating man to the trader. Current quantity of man is 0
+john is updating laptop to the trader. Current quantity of laptop is 0

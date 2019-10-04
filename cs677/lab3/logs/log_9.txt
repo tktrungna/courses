@@ -1,0 +1,9 @@
+Log file for peer 9
+Started client of maurince@127.0.0.1:10049
+Has items: {u'umbrella': 1500, u'lipstick': 1500, u'banknote': 1500, u'painkiller': 1500, u'headphone': 1500, u'camera': 1500, u'sunscreen': 1500, u'newspaper': 1500, u'coin': 1500}
+The current trader is: trader_1
+Current items: {u'umbrella': 1400, u'lipstick': 1400, u'banknote': 1400, u'painkiller': 1400, u'headphone': 1400, u'camera': 1400, u'sunscreen': 1400, u'newspaper': 1400, u'coin': 1400}
+maurince is depositing item to the trader.
+maurince is updating key to the trader. Current quantity of key is 0
+maurince is updating man to the trader. Current quantity of man is 0
+maurince is updating laptop to the trader. Current quantity of laptop is 0

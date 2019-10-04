@@ -1,0 +1,36 @@
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> >>> Traceback (most recent call last):
+Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+  File "test_client.py", line 36, in <module>
+        input = raw_input(">>> ").split()
+input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line
+>>> Traceback (most recent call last):
+  File "test_client.py", line 36, in <module>
+    input = raw_input(">>> ").split()
+EOFError: EOF when reading a line

@@ -1,0 +1,40 @@
+Log file for peer <built-in function id>
+trader_1 is asking deposit items from sellers.
+Current deposit: {u'pencil': {u'barry': 100, u'john': 100}, u'umbrella': {u'maurince': 100, u'john': 100}, u'dictionary': {u'paul': 100}, u'painkiller': {u'maurince': 100}, u'photo': {u'paul': 100}, u'watch': {u'peter': 100}, u'packet': {u'peter': 100}, u'headphone': {u'maurince': 100}, u'water': {u'peter': 100}, u'tissue': {u'peter': 100}, u'diary': {u'peter': 100}, u'lighter': {u'john': 100}, u'pordcard': {u'paul': 100}, u'scissors': {u'george': 100}, u'coin': {u'maurince': 100, u'paul': 100}, u'bulb': {u'barry': 100}, u'sunscreen': {u'maurince': 100}, u'lipstick': {u'maurince': 100}, u'banknote': {u'maurince': 100}, u'clock': {u'barry': 100}, u'stamp': {u'paul': 100}, u'button': {u'john': 100}, u'magazine': {u'barry': 100}, u'rubber': {u'george': 100}, u'wallet': {u'john': 100}, u'pen': {u'john': 100}, u'camera': {u'maurince': 100, u'paul': 100}, u'bottle': {u'peter': 100}, u'newspaper': {u'barry': 100, u'maurince': 100}, u'glasses': {u'peter': 100}}
+Current deposit: {}
+Started Trader: trader_1@127.0.0.1:10061
+john is looking up for key.
+The Trader has selled item key to john. The current quantity of item is: {u'key': 9}
+john is looking up for key.
+The Trader has selled item key to john. The current quantity of item is: {u'key': 9}
+john is looking up for key.
+trader_1 is asking deposit items from sellers.
+Current deposit: {u'key': {}}
+Current deposit: {}
+The Trader and other seller doesn't have (enough) such item 
+barry is looking up for man.
+trader_1 is asking deposit items from sellers.
+Current deposit: {u'man': {}}
+Current deposit: {}
+The Trader and other seller doesn't have (enough) such item 
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+marry is looking up for laptop.
+The Trader has selled item laptop to marry. The current quantity of item is: {u'laptop': 9, u'key': 9}
+Couldn't connect to other trader: trader_0
+marry is looking up for laptop.
+trader_1 is asking deposit items from sellers.
+Current deposit: {u'laptop': {u'ringo': 100}}
+Current deposit: {}
+The Trader has selled item laptop to marry. The current quantity of item is: {u'laptop': 9, u'key': 9}
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0
+Couldn't connect to other trader: trader_0

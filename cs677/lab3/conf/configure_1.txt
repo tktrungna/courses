@@ -1,0 +1,1 @@
+{"neighbors": [{"ip": "127.0.0.1", "id": "trader_0", "port": 10060}, {"ip": "127.0.0.1", "id": "trader_1", "port": 10061}], "index": 1, "items": {"dictionary": 1500, "stamp": 1500, "photo": 1500, "camera": 1500, "pordcard": 1500, "coin": 1500}, "trader": 1, "id": "paul", "ip": "127.0.0.1", "port": 10041}

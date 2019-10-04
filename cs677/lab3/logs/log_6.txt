@@ -1,0 +1,9 @@
+Log file for peer 6
+Started client of ringo@127.0.0.1:10046
+Has items: {u'toothbrush': 1500, u'notebook': 1500, u'mirror': 1500, u'battery': 1500, u'laptop': 1500, u'comb': 1500}
+The current trader is: trader_0
+Current items: {u'toothbrush': 1400, u'notebook': 1400, u'mirror': 1400, u'battery': 1400, u'laptop': 1400, u'comb': 1400}
+ringo is depositing item to the trader.
+ringo is updating key to the trader. Current quantity of key is 0
+The current trader is: trader_1
+ringo is updating laptop to the trader. Current quantity of laptop is 1300
